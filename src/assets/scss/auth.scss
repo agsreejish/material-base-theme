@@ -1,0 +1,39 @@
+
+.auth-screen{
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.page-bg{  
+      background-size: cover;
+      background-position: center center;
+      background-image: url('../images/background.jpg');
+    }
+    .auth-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 2rem;
+      max-width: 600px;
+      border-radius: 14px;
+      border:2px solid #dadada;
+      a{
+        text-decoration:none;
+      }
+    }
+    .auth-logo{
+      max-width: 64%;
+      display: block;
+    }
+    .auth-form{
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 2rem;
+        button{
+            padding: 12px 16px;
+            border-radius: 10px;
+        }
+    }
+  }
