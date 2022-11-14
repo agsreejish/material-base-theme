@@ -13,9 +13,9 @@ phases:
   build:
     commands:
       - echo Building...
-      - npm build
+      - npm run-script build
 artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist
+  base-directory: build
