@@ -10,6 +10,7 @@ import * as yup from 'yup';
 import YupPassword from 'yup-password'
 import ModalDialog from "../../components/ModalDialog";
 import TermsAndConditions from "../../components/terms/TermsAndConditions";
+import { Login } from "../../routes/path";
 YupPassword(yup) // extend yup
 
 
@@ -37,7 +38,7 @@ const validationSchema = yup.object().shape({
       .oneOf([true],'Please accept the terms and conditions'),
   });
 
-export default function Login(){
+export default function SignUp(){
 
     const [values, setValues] = useState({
         showPassword: false,
@@ -183,7 +184,7 @@ export default function Login(){
                     </form>
                     <Box mt={3} >
                         <Typography variant="body1" textAlign={"center"}>                        
-                            Already have an account? <Link href="/login" >Login</Link>
+                            Already have an account? <Link href={Login} >Login</Link>
                         </Typography>
                     </Box>
                 </Box>

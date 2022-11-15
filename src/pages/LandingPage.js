@@ -3,6 +3,7 @@ import logo from '../assets/images/logo-icon.svg';
 import { Box, Button } from '@mui/material';
 
 import { projectName } from '../constants/defaultValues';
+import { Login } from "../../routes/path";
 
 function LandingPage() {
   return (
@@ -13,7 +14,7 @@ function LandingPage() {
           Welcome to {projectName}.
         </Box>
         <Box mt={2} pb={4}>
-            <Button href="/login" variant="contained" color="primary" sx={{width:'240px', py:1.5}} >Login</Button>
+            <Button href={Login} variant="contained" color="primary" sx={{width:'240px', py:1.5}} >Login</Button>
         </Box>      
       </header>
     </Box>

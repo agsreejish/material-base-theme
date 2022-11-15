@@ -4,6 +4,8 @@ import AuthLayout from "../../layouts/AuthLayout";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
+import { Login } from "../../routes/path";
+
 const validationSchema = yup.object().shape({
     email: yup
       .string('Enter your email')
@@ -56,7 +58,7 @@ export default function ForgotPassword(){
                     </form>
                     <Box mt={3} >
                         <Typography variant="body1" textAlign={"center"}>                        
-                            Back to <Link href="/login" >Login</Link>
+                            Back to <Link href={Login} >Login</Link>
                         </Typography>
                     </Box>
                 </Box>

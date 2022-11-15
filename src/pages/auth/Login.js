@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Button, Checkbox, FormControlLabel, FormGroup, IconButton, InputAdornment, Link, TextField, Typography } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, FormGroup, IconButton, InputAdornment, Link, TextField, Typography, useMediaQuery } from "@mui/material";
 import AuthBox from "../../components/auth/AuthBox";
 import AuthLayout from "../../layouts/AuthLayout";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
@@ -8,6 +8,11 @@ import * as yup from 'yup';
 
 import { useDispatch, useSelector} from 'react-redux';
 import { loginUser } from "../../redux/slices/user";
+
+import { ForgotPassword, SignUp } from "../../routes/path";
+import { useTheme } from "@emotion/react";
+
+
 
 
 const validationSchema = yup.object().shape({
@@ -21,7 +26,7 @@ const validationSchema = yup.object().shape({
 });
 
 export default function Login() {
-
+    const theme = useTheme();
     const [values, setValues] = useState({
         showPassword: false,
     });
@@ -56,6 +61,8 @@ export default function Login() {
     useEffect(()=>{
         setErrors(loginErrors);
     },[loginErrors]);
+
+    const mdd = useMediaQuery(theme.breakpoints.down('md'))
 
     return (
         <AuthLayout>
@@ -114,11 +121,11 @@ export default function Login() {
                                 }}
                             />
                         </Box>
-                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Box sx={{ display: `${mdd ? 'block':'flex'}`, alignItems: 'center', justifyContent: 'space-between'  }}>
                             <FormGroup>
                                 <FormControlLabel control={<Checkbox id="remember" name="remember" {...formik.getFieldProps('remember')} checked={formik.values.remember} />} label="Remember me" />
                             </FormGroup>
-                            <Link href="/forgot-password" >Recover Password</Link>
+                            <Link href={ForgotPassword} >Recover Password</Link>
                         </Box>
                         <Box mt={3} pb={4}>
                             <Button type="submit" variant="contained" color="primary" fullWidth>Login</Button>
@@ -126,7 +133,7 @@ export default function Login() {
                     </form>
                     <Box mt={3} >
                         <Typography variant="body1" textAlign={"center"}>
-                            Don't have an account yet? <Link href="/sign-up" >Sign Up</Link>
+                            Don't have an account yet? <Link href={SignUp} >Sign Up</Link>
                         </Typography>
                     </Box>
                 </Box>
